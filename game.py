@@ -4,26 +4,26 @@ import random
 #logic
 
 
-p1 = Pokemon()
-p2 = Pokemon()
-p3 = Pokemon()
+# p1 = Pokemon()
+# p2 = Pokemon()
+# p3 = Pokemon()
 
-p4 = Pokemon()
-p5 = Pokemon()
-p6 = Pokemon()
+# p4 = Pokemon()
+# p5 = Pokemon()
+# p6 = Pokemon()
 
-def draw():
-    return p1,p2,p3
+# def draw():
+#     return p1,p2,p3
 
-def draw_comp():
-    return p4,p5,p6
-
-
-my_team = draw()
-opponent_team = draw_comp()
+# def draw_comp():
+#     return p4,p5,p6
 
 
-print(f'Your pokemon:{p1.name},{p2.name},{p3.name}')
+# my_team = draw()
+# opponent_team = draw_comp()
+
+
+# print(f'Your pokemon:{p1.name},{p2.name},{p3.name}')
 # print(f'Your opponents pokemon:{p4.name},{p5.name},{p6.name}')
 
 my_choice = int(input("which pokemon you choose 1/2/3"))
