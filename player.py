@@ -22,10 +22,19 @@ class Player:
         self.choice = choice
         self.current_pokemon = self.my_team[self.choice-1]
 
+    def set_second_pokemon(self):
+        if self.nc:
+            self.choice = random.random(1,2)
+        else:
+            self.choice = int(input("which pokemon you choose? (1/2) "))
+        self.current_pokemon = self.my_team[self.choice -1]
+
+    def set_third_pokemon(self):
+        self.choice = 1
+        self.current_pokemon = self.my_team[self.choice-1]            
 
     def remove_pokemon(self):
-        if 0 <= self.choice < len(self.my_team):
-            self.my_team.pop(self.choice -1 )
+        self.my_team.pop(self.choice -1 )
             
 
     def draw_team(self):
