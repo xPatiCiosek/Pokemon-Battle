@@ -3,11 +3,18 @@ import random
 
 
 class Player:
-    def __init__(self):
-        self.name = input('Whats your name')
-        self.my_team = draw()
-        self.choice =int(input("which pokemon you choose 1/2/3"))
+    def __init__(self, npc=False):
+        self.npc = npc
+        if self.npc:
+            self.name = 'Computer'
+            self.my_team = self.draw_team()
+            self.choice = random.randint(1,3)
+        else:
+            self.name = input('Whats your name')
+            self.my_team = self.draw_team()
+            self.choice =int(input("which pokemon you choose 1/2/3"))
         self.current_pokemon = self.my_team[self.choice-1]
+        print(f'First pokemon to fight for {self.name} will be {self.current_pokemon.name}')
 
 
     def set_new_current_pokemon(self):
@@ -21,19 +28,12 @@ class Player:
             self.my_team.pop(self.choice -1 )
             
 
-
-class Comp:
-    def __init__(self):
-        self.team = draw()
-        self.current_pokemon = current_pokemon(random.randint(1,len(self.team)),self.team)
-
-
-def draw():
-    p1 = Pokemon()
-    p2 = Pokemon()
-    p3 = Pokemon()
-    print(p1.name,p2.name,p3.name)
-    return [p1,p2,p3]
+    def draw_team(self):
+        p1 = Pokemon()
+        p2 = Pokemon()
+        p3 = Pokemon()
+        print(p1.name,p2.name,p3.name)
+        return [p1,p2,p3]
 
 
 # def current_pokemon(choice,team):
