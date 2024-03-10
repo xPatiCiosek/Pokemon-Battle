@@ -42,7 +42,7 @@ class Player:
         if self.npc:
             print('\nYour opponents pokemon fainted.')
             self.choice = random.randint(1,len(self.my_team))
-            print(f'Next pokemon in {self.my_team[self.choice-1].name}')
+            print(f'Next pokemon in {self.my_team[self.choice-1].name} TYPE: {self.my_team[self.choice-1].types}')
         else:
             print('\nYour pokemon fainted.')
             self.print_team()
