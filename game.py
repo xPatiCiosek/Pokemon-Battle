@@ -6,9 +6,7 @@ class Game:
     def play(self):  
         while True:
             # Player moves first
-            damage = self.player.make_next_move(self.opponent)
-            self.opponent.current_pokemon.hp -= damage
-            print(f"{self.opponent.current_pokemon.name}'s hp: {self.opponent.current_pokemon.hp}\n")
+            self.attack(self.player, self.opponent)
 
             if self.opponent.current_pokemon.hp <= 0:
                 self.opponent.remove_pokemon()
@@ -19,10 +17,8 @@ class Game:
                     break;    
 
             # Opponent moves next
-            damage = self.opponent.make_next_move(self.player)
-            self.player.current_pokemon.hp -= damage
+            self.attack(self.opponent, self.player)
 
-            print(f"{self.player.current_pokemon.name}'s hp: {self.player.current_pokemon.hp}")
             if self.player.current_pokemon.hp <= 0:
                 self.player.remove_pokemon()
                 if len(self.player.my_team) > 0:
@@ -30,5 +26,9 @@ class Game:
                 else:
                     print("your opponent won")
                     break; 
-        
-   
+
+
+    def attack(self, attacker, defender):
+        damage = attacker.make_next_move(defender)
+        defender.current_pokemon.hp -= damage
+        print(f"{defender.current_pokemon.name}'s hp: {defender.current_pokemon.hp}\n")
