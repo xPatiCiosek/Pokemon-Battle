@@ -13,9 +13,8 @@ class Pokemon:
         self.attack = self.get_attack(pokemon_data)
         self.defense = self.get_defense(pokemon_data)
         self.speed = self.get_speed(pokemon_data)
-        self.types = self.get_types(self.name)
-        self.moves = self.get_moves(self.name)
-
+        self.types = self.get_types(pokemon_data)
+        self.moves = self.get_moves(pokemon_data)
 
     @staticmethod
     def get_hp(pokemon_data):
@@ -32,18 +31,17 @@ class Pokemon:
     @staticmethod
     def get_speed(pokemon_data):
         return pokemon_data['stats'][5]['base_stat']
-
-            
+    
     @staticmethod
     def get_types(pokemon_data):
         types_list = [] 
         types = pokemon_data['types']
-        
+            
         for type in types:
             types_list.append(type['type']['name'])
-        return types_list    
-
-
+        return types_list 
+    
+    @staticmethod
     def get_moves(pokemon_data):
         move_list = []
         moves = pokemon_data['moves']
