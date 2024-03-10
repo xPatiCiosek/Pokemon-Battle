@@ -75,7 +75,6 @@ class Player:
         # Damage formula
         defense = opponent.current_pokemon.defense
         type_weakness_resistance = Damage_type_data(move.type).assign_damage(opponent.current_pokemon.types)
-        print(type_weakness_resistance)
         damage = round((((self.current_pokemon.attack * move.power / defense) / 50) + 2) * type_weakness_resistance * random.randint(85,100)/20) 
         print(f'Move {move.name} does {damage} damage!')
         return damage
