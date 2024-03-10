@@ -8,8 +8,8 @@ class Move:
         self.name = move_data['name']
         self.type = move_data['type']['name']
         self.power = move_data['power']
-        # self.accuracy = move_data['accuracy']
-
+        if move_data['power'] is None:
+            self.power = 0
 
     @staticmethod
     def assign_moves(move_list):
@@ -25,3 +25,4 @@ class Move:
             move_data = move_request.get_content()
             move_data_list.append(Move(move_data)) 
         return move_data_list
+      
