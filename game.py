@@ -1,3 +1,5 @@
+import time
+
 class Game:
     def __init__(self, player, opponent):
         self.player = player
@@ -26,8 +28,10 @@ class Game:
     @staticmethod
     def attack(attacker, defender):
         damage = attacker.make_next_move(defender)
-        defender.current_pokemon.hp -= damage
-        print(f"{defender.current_pokemon.name}'s hp: {defender.current_pokemon.hp}\n")
+        defender.current_pokemon.hp = max(defender.current_pokemon.hp - damage, 0)
+        print(f"{defender.current_pokemon.name}'s hp: {defender.current_pokemon.hp}")
+        print(f"{defender.current_pokemon.name}'s hp: [{defender.current_pokemon.hp*'■'}{(defender.current_pokemon.initial_hp - defender.current_pokemon.hp)*'·'}]\n")
+        time.sleep(1)
 
     @staticmethod
     def defeat_checker(player):

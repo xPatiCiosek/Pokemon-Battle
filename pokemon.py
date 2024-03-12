@@ -9,6 +9,7 @@ class Pokemon:
         pokemon_request = Request(POKEMON.format(random.randint(1,1025)))
         pokemon_data = pokemon_request.get_content()
         self.name = pokemon_data['name']
+        self.initial_hp = self.get_hp(pokemon_data)
         self.hp = self.get_hp(pokemon_data)
         self.attack = self.get_attack(pokemon_data)
         self.defense = self.get_defense(pokemon_data)

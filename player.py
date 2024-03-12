@@ -18,6 +18,7 @@ class Player:
             self.choice = int(input("Which pokemon you choose? (1/2/3)"))
         self.current_pokemon = self.my_team[self.choice-1]
         print(f'First pokemon to fight for {self.name} will be {self.current_pokemon.name}. TYPE: {self.current_pokemon.types}')
+        print(f"{self.current_pokemon.name}'s hp: [{self.current_pokemon.initial_hp*'■'}]\n")
 
     
     def print_rules(self):
